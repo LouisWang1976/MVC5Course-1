@@ -39,7 +39,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.ProductName)
         </td>
-        <td>
+        <td class="@(item.Price > 100 ? "text-danger" : "")">
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
