@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC5Course.Models.Validations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace MVC5Course.Models
     {
         [Required]
         [MinLength(3)]
+        //[商品名稱不能有Will字串]
         public string Username { get; set; }
         [Required]
         [MinLength(6)]

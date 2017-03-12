@@ -46,7 +46,7 @@ namespace MVC5Course.Controllers
                 return Content(login.Username + ":" + login.Password);
             }
 
-            return Content("Login Failed");
+            return View();
         }
     }
 }
