@@ -22,5 +22,24 @@ namespace MVC5Course.Controllers
         {
             return View();
         }
+
+        public ActionResult Content1()
+        {
+            return Content("<script>alert('新增成功');location.href='/';</script>");
+        }
+
+        public ActionResult File1()
+        {
+            //return File(@"C:\Projects\MVC5Course\MVC5Course\Content\251178_medium.png", "image/png");
+            return File(Server.MapPath("~/Content/251178_medium.png"), "image/png");
+        }
+
+        public ActionResult File2()
+        {
+            //return File(@"C:\Projects\MVC5Course\MVC5Course\Content\251178_medium.png", "image/png");
+            return File(Server.MapPath("~/Content/251178_medium.png"), "image/png", "圖片下載.png");
+        }
+
+
     }
 }
