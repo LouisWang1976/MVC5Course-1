@@ -11,6 +11,7 @@ using PagedList;
 
 namespace MVC5Course.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         ProductRepository repo = RepositoryHelper.GetProductRepository();
