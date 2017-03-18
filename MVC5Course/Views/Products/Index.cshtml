@@ -52,7 +52,7 @@
             @Html.HiddenFor(modelItem => data[i].ProductId)
             <tr>
                 <td>
-                    @Html.EditorFor(modelItem => data[i].ProductName)
+                    @Html.EditorFor(modelItem => data[i].ProductName, null, "data["+i+"].ProductName")
                     @Html.ValidationMessageFor(modelItem => data[i].ProductName)
                 </td>
                 <td class="@(data[i].Price > 100 ? "text-danger" : "")">
