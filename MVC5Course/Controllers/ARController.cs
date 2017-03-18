@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC5Course.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -40,6 +41,10 @@ namespace MVC5Course.Controllers
             return File(Server.MapPath("~/Content/251178_medium.png"), "image/png", "圖片下載.png");
         }
 
+        public ActionResult Json1()
+        {
+            return Json(new LoginVM() { Username = "will", Password = "111222" }, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }
