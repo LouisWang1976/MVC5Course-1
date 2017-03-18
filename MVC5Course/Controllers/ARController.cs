@@ -46,5 +46,15 @@ namespace MVC5Course.Controllers
             return Json(new LoginVM() { Username = "will", Password = "111222" }, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Redirect1()
+        {
+            return RedirectToAction("View3");
+        }
+
+        public ActionResult Redirect2()
+        {
+            return RedirectToActionPermanent("View3");
+        }
+
     }
 }
