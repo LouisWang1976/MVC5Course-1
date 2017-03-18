@@ -397,6 +397,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\_Pager.cshtml" />
     <Content Include="Views\AR\Index.cshtml" />
+    <Content Include="Views\AR\View3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

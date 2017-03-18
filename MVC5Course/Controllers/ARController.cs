@@ -12,5 +12,15 @@ namespace MVC5Course.Controllers
         {
             return View("123");
         }
+
+        public ActionResult View2()
+        {
+            return PartialView("Index");
+        }
+
+        public ActionResult View3()
+        {
+            return View();
+        }
     }
 }
