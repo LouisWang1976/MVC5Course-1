@@ -40,11 +40,13 @@ namespace MVC5Course.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(LoginVM login, string ReturnUrl)
+        public ActionResult Login(LoginVM login, string ReturnUrl = "")
         {
             if (ModelState.IsValid)
             {
                 FormsAuthentication.RedirectFromLoginPage(login.Username, false);
+
+                TempData["LoginResult"] = login;
 
                 if (ReturnUrl.StartsWith("/"))
                 {
