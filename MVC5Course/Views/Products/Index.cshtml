@@ -18,45 +18,65 @@
 
 @Html.Partial("_Pager", Model)
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </th>
-        <th>
-            <a href="@Url.Action("Index", "Products", new { sortBy = "+Price", keyword = ViewBag.keyword })">↑</a>
-            @Html.DisplayNameFor(model => model.Price)
-            <a href="@Url.Action("Index", "Products", new { sortBy = "-Price", keyword = ViewBag.keyword })">↓</a>
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Active)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Stock)
-        </th>
-        <th></th>
-    </tr>
+@using (Html.BeginForm())
+{
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td class="@(item.Price > 100 ? "text-danger" : "")">
-            NT$ @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Active)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stock)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
-        </td>
-    </tr>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                <a href="@Url.Action("Index", "Products", new { sortBy = "+Price", keyword = ViewBag.keyword })">↑</a>
+                @Html.DisplayNameFor(model => model.Price)
+                <a href="@Url.Action("Index", "Products", new { sortBy = "-Price", keyword = ViewBag.keyword })">↓</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th></th>
+        </tr>
+        @*
+            item.ProductName
+            data[0].ProductName
+        *@
+        @{
+            var data = Model.ToArray();
+        }
+
+        @for(var i=0; i < data.Length; i++)
+        {
+            @Html.HiddenFor(modelItem => data[i].ProductId)
+            <tr>
+                <td>
+                    @Html.EditorFor(modelItem => data[i].ProductName)
+                    @Html.ValidationMessageFor(modelItem => data[i].ProductName)
+                </td>
+                <td class="@(data[i].Price > 100 ? "text-danger" : "")">
+                    NT$ @Html.EditorFor(modelItem => data[i].Price)
+                    @Html.ValidationMessageFor(modelItem => data[i].Price)
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => data[i].Active)
+                    @Html.ValidationMessageFor(modelItem => data[i].Active)
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => data[i].Stock)
+                    @Html.ValidationMessageFor(modelItem => data[i].Stock)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = data[i].ProductId }) |
+                    @Html.ActionLink("Details", "Details", new { id = data[i].ProductId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = data[i].ProductId })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+<input type="submit"
+       value="送出" />
 }
-
-</table>
