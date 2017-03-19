@@ -15,9 +15,14 @@ namespace MVC5Course.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult About(string ex = "")
         {
             ViewBag.Message = "Your application description page.";
+
+            if (ex == "err")
+            {
+                throw new ArgumentOutOfRangeException("ex");
+            }
 
             return View();
         }
