@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace MVC5Course.Controllers
 {
+    [HandleError(View = "Error_ArgumentException", ExceptionType = typeof(ArgumentException))]
     public class HomeController : BaseController
     {
         public ActionResult Index()
@@ -15,13 +16,13 @@ namespace MVC5Course.Controllers
             return View();
         }
 
-        public ActionResult About(string ex = "")
+        public ActionResult About(int ex)
         {
             ViewBag.Message = "Your application description page.";
 
-            if (ex == "err")
+            if (ex == 1)
             {
-                throw new ArgumentOutOfRangeException("ex");
+                throw new Exception("ex");
             }
 
             return View();

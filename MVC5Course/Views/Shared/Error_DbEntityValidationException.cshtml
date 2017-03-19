@@ -1,0 +1,19 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+
+    var ex = Model.Exception as System.Data.Entity.Validation.DbEntityValidationException;
+}
+
+<h1 class="text-danger">資料驗證失敗</h1>
+<h2 class="text-danger">錯誤訊息如下</h2>
+<ul>
+    @foreach (var errors in ex.EntityValidationErrors)
+    {
+        foreach (var err in errors.ValidationErrors)
+        {
+            <li>@err.PropertyName 發生錯誤：@err.ErrorMessage</li>
+        }
+    }
+</ul>

@@ -13,7 +13,7 @@ namespace MVC5Course.Models
 
         public override IQueryable<Product> All()
         {
-            return base.All().Where(p => false == p.IsDeleted && p.Stock < 500);
+            return base.All().Where(p => false == p.IsDeleted && p.Stock > 500);
         }
 
         public IQueryable<Product> All(bool showAll)
@@ -30,9 +30,9 @@ namespace MVC5Course.Models
 
         public override void Delete(Product entity)
         {
-            this.UnitOfWork.Context.Configuration.ValidateOnSaveEnabled = false;
-
-            entity.IsDeleted = true;
+            //this.UnitOfWork.Context.Configuration.ValidateOnSaveEnabled = false;
+            //entity.IsDeleted = true;
+            base.Delete(entity);
         }
 
     }
