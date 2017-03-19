@@ -577,6 +577,7 @@
     <Content Include="Views\VT\Index.cshtml" />
     <Content Include="Views\VT\RazorTest.cshtml" />
     <Content Include="Views\Home\NewPage.cshtml" />
+    <Content Include="Views\Shared\_Layout.Metro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
