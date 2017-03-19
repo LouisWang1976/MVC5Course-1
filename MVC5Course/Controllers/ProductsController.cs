@@ -13,7 +13,7 @@ using System.Data.Entity.Validation;
 
 namespace MVC5Course.Controllers
 {
-    [OutputCache(Duration = 60, Location = OutputCacheLocation.ServerAndClient)]
+    //[OutputCache(Duration = 60, Location = OutputCacheLocation.ServerAndClient)]
     //[Authorize]
     public class ProductsController : BaseController
     {
@@ -60,6 +60,16 @@ namespace MVC5Course.Controllers
                 return HttpNotFound();
             }
             return View(product);
+        }
+
+        public ActionResult ProductOrderLines(int id)
+        {
+            Product product = repoProduct.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product.OrderLine);
         }
 
         // GET: Products/Create
