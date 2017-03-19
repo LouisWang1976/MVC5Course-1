@@ -1,0 +1,24 @@
+﻿@{ 
+    Layout = "";
+
+    ViewBag.Text = "<strong>123</strong>";
+}
+
+@if (ViewBag.IsDebug)
+{
+    @:偵錯模式啟用
+}
+
+@if (ViewBag.IsDebug)
+{
+    <span>偵錯模式啟用</span>
+}
+
+@if (ViewBag.IsDebug)
+{
+    <text>偵錯模式啟用</text>
+}
+
+@ViewBag.Text
+
+@Html.Raw(ViewBag.Text)
