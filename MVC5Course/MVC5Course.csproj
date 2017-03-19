@@ -177,6 +177,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionFilters\紀錄Action執行時間Attribute.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -190,6 +191,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="ActionFilters\SharedDataAttribute.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
