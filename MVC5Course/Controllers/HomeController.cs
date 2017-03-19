@@ -75,10 +75,5 @@ namespace MVC5Course.Controllers
 
             return RedirectToAction("Index");
         }
-
-        public ActionResult NewPage()
-        {
-            return View();
-        }
     }
 }

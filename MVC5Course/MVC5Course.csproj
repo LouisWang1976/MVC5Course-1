@@ -191,6 +191,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MBController.cs" />
+    <Compile Include="Controllers\MetroController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="ActionFilters\SharedDataAttribute.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -576,8 +577,10 @@
     <Content Include="Views\Shared\Error_DbEntityValidationException.cshtml" />
     <Content Include="Views\VT\Index.cshtml" />
     <Content Include="Views\VT\RazorTest.cshtml" />
-    <Content Include="Views\Home\NewPage.cshtml" />
     <Content Include="Views\Shared\_Layout.Metro.cshtml" />
+    <Content Include="Views\Metro\Index.cshtml" />
+    <Content Include="Views\Metro\_ViewStart.cshtml" />
+    <Content Include="Views\Metro\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
