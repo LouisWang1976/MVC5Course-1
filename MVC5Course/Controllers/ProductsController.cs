@@ -18,7 +18,7 @@ namespace MVC5Course.Controllers
     public class ProductsController : BaseController
     {
         // GET: Products
-        public ActionResult Index(string sortBy, string keyword, int pageNo = 1)
+        public ActionResult Index(string FilterActive, string sortBy, string keyword, int pageNo = 1)
         {
             //ViewBag.FilterActive = new SelectList(new List<string> { "True", "False" });
 
@@ -33,7 +33,7 @@ namespace MVC5Course.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Product[] data,string sortBy, string keyword, int pageNo = 1)
+        public ActionResult Index(string FilterActive, Product[] data,string sortBy, string keyword, int pageNo = 1)
         {
             if (ModelState.IsValid)
             {
