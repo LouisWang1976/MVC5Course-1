@@ -130,8 +130,14 @@
             @Html.DisplayNameFor(model => model.Notes)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Notes)
+        <dd onclick="showText()">
+            @Html.Raw(Model.Notes.Replace("\r\n", "<br />"))
+
+            <script>
+                function showText() {
+                    alert('@Ajax.JavaScriptStringEncode(Model.Notes)');
+                }
+            </script>
         </dd>
 
         <dt>
