@@ -20,6 +20,13 @@ namespace MVC5Course.Controllers
         // GET: Products
         public ActionResult Index(string sortBy, string keyword, int pageNo = 1)
         {
+            //ViewBag.FilterActive = new SelectList(new List<string> { "True", "False" });
+
+            var activeOptions = repoProduct.All().Select(p => p.Active.HasValue ? p.Active.Value.ToString() : "False").Distinct().ToList();
+
+            ViewBag.FilterActive = new SelectList(activeOptions);
+
+
             DoSearchOnIndex(sortBy, keyword, pageNo);
 
             return View();
@@ -41,6 +48,12 @@ namespace MVC5Course.Controllers
                 repoProduct.UnitOfWork.Commit();
                 return RedirectToAction("Index");
             }
+
+            //ViewBag.FilterActive = new SelectList(new List<string> { "True", "False" });
+
+            var activeOptions = repoProduct.All().Select(p => p.Active.HasValue ? p.Active.Value.ToString() : "False").Distinct().ToList();
+
+            ViewBag.FilterActive = new SelectList(activeOptions);
 
             DoSearchOnIndex(sortBy, keyword, pageNo);
 
@@ -119,7 +132,7 @@ namespace MVC5Course.Controllers
         public ActionResult Edit(int id, FormCollection form)
         {
             var product = repoProduct.Find(id);
-            if (TryUpdateModel(product, new string[] { "ProductName", "Stock" }))
+            if (TryUpdateModel(product, new string[] { "ProductName", "Stock", "Active" }))
             {
             }
             repoProduct.UnitOfWork.Commit();
