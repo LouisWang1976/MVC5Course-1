@@ -598,6 +598,8 @@
     <Content Include="Views\Clients\Details.cshtml" />
     <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\顯示性別.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CreditRating.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
