@@ -47,6 +47,9 @@ if (!String.IsNullOrEmpty(LayoutPageFile)) {
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@Html.Partial("_Pager", Model)
+
 <table class="table">
     <tr>
 <#

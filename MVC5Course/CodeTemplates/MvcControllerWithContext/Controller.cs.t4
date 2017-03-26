@@ -46,6 +46,7 @@ using System.Web.Mvc;
 <# foreach (var namespaceName in RequiredNamespaces) { #>
 using <#= namespaceName #>;
 <# } #>
+using PagedList;
 
 namespace <#= Namespace #>
 {
@@ -79,24 +80,27 @@ namespace <#= Namespace #>
 <# if (UseAsync) { #>
         public async Task<ActionResult> Index()
 <# } else { #>
-        public ActionResult Index()
+        public ActionResult Index(int pageNo = 1)
 <# } #>
         {
 <#  var includeExpressions = "";
         includeExpressions = String.Join("", relatedProperties.Values.Select(property => String.Format(".Include({0} => {0}.{1})", lambdaVar, property.AssociationPropertyName)));
 #>
 <# if(!String.IsNullOrEmpty(includeExpressions)) { #>
-            var <#= entitySetVar #> = db.<#= entitySetName #><#= includeExpressions #>;
+            var <#= entitySetVar #> = db.<#= entitySetName #><#= includeExpressions #>.OrderBy(p => p.<#=primaryKeyName#>).ToPagedList(pageNo, 10);
 <#		if (UseAsync) { #>
             return View(await <#= entitySetVar #>.ToListAsync());
 <#		} else { #>
-            return View(<#= entitySetVar #>.ToList());
+            return View(<#= entitySetVar #>);
 <#		} #>
 <# } else { #>
 <#		if (UseAsync) { #>
             return View(await db.<#= entitySetName #><#= includeExpressions #>.ToListAsync());
 <#		} else { #>
-            return View(db.<#= entitySetName #><#= includeExpressions #>.ToList());
+
+            ViewData.Model = db.<#= entitySetName #><#= includeExpressions #>.OrderBy(p => p.<#=primaryKeyName#>).ToPagedList(pageNo, 10);
+
+            return View();
 <#		} #>
 <# } #>
         }
