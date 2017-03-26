@@ -600,6 +600,7 @@
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\顯示性別.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CreditRating.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
